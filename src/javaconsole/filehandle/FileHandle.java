@@ -9,8 +9,6 @@ import javaconsole.entity.Student;
 import javaconsole.model.StudentModel;
 import java.io.*;
 import java.util.ArrayList;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 /**
  *
@@ -36,6 +34,8 @@ public class FileHandle {
                 bw.write("Name: " + student.getName());
                 bw.newLine();
                 bw.write("Email: " + student.getEmail());
+                bw.newLine();
+                bw.write("Phone: " + student.getPhone());
                 bw.newLine();
                 bw.write("Class-name: " + student.getClassName());
                 bw.newLine();
@@ -75,7 +75,8 @@ public class FileHandle {
             try {
                 br.close();
             } catch (IOException ex) {
-                Logger.getLogger(FileHandle.class.getName()).log(Level.SEVERE, null, ex);
+                System.err.println("Close stream erorr !!!\n" + ex.getMessage());
+            } catch (NullPointerException e){
             }
         }
 
