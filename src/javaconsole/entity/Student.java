@@ -11,20 +11,22 @@ package javaconsole.entity;
  */
 public class Student {
 
-    private  int id;
-    private  String name;
-    public String email;
-    public String className;
-    public String rollNumber;
+    private int id;
+    private String name;
+    private String phone;
+    private String email;
+    private String className;
+    private String rollNumber;
     private int status;
 
     public Student() {
-    
+
     }
 
-    public Student(int id, String name, String email, String className, String rollNumber, int status) {
+    public Student(int id, String name, String phone, String email, String className, String rollNumber, int status) {
         this.id = id;
         this.name = name;
+        this.phone = phone;
         this.email = email;
         this.className = className;
         this.rollNumber = rollNumber;
@@ -45,6 +47,14 @@ public class Student {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
     }
 
     public String getEmail() {
@@ -78,5 +88,5 @@ public class Student {
     public void setStatus(int status) {
         this.status = status;
     }
-    
+
 }
