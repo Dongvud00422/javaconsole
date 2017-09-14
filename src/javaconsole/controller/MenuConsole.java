@@ -21,6 +21,7 @@ public class MenuConsole {
     }
 
     public void createMenu() {
+        menu:
         while (true) {
             System.out.println("=========Student Manager========");
             System.out.println("1. Student list.");
