@@ -25,6 +25,7 @@ public class StudentModel {
                 student.setId(rs.getInt("id"));
                 student.setName(rs.getString("name"));
                 student.setEmail(rs.getString("email"));
+                student.setPhone(rs.getString("phone"));
                 student.setClassName(rs.getString("class_name"));
                 student.setRollNumber(rs.getString("roll_number"));
                 student.setStatus(rs.getInt("status"));
@@ -46,6 +47,7 @@ public class StudentModel {
                 student.setId(rs.getInt("id"));
                 student.setName(rs.getString("name"));
                 student.setEmail(rs.getString("email"));
+                student.setPhone(rs.getString("phone"));
                 student.setClassName(rs.getString("class_name"));
                 student.setRollNumber(rs.getString("roll_number"));
                 student.setStatus(rs.getInt("status"));
@@ -61,13 +63,14 @@ public class StudentModel {
 
     public void insert(Student student) {
         try {
-            PreparedStatement preStt = DAO.getConnection().prepareStatement("INSERT INTO Student VALUE (?,?,?,?,?,?);");
+            PreparedStatement preStt = DAO.getConnection().prepareStatement("INSERT INTO Student VALUE (?,?,?,?,?,?,?);");
             preStt.setInt(1, student.getId());
             preStt.setString(2, student.getName());
             preStt.setString(3, student.getEmail());
-            preStt.setString(4, student.getClassName());
-            preStt.setString(5, student.getRollNumber());
-            preStt.setInt(6, student.getStatus());
+            preStt.setString(4, student.getPhone());
+            preStt.setString(5, student.getClassName());
+            preStt.setString(6, student.getRollNumber());
+            preStt.setInt(7, student.getStatus());
 
             preStt.execute();
             
@@ -79,13 +82,14 @@ public class StudentModel {
 
     public void updateStudent(Student updateStudent) {
         try {
-            PreparedStatement preStt = DAO.getConnection().prepareStatement("UPDATE Student SET name=?, email=?, class_name=?, roll_number=?, status=? WHERE id=?");
+            PreparedStatement preStt = DAO.getConnection().prepareStatement("UPDATE Student SET name=?, email=?, phone=?, class_name=?, roll_number=?, status=? WHERE id=?");
             preStt.setString(1, updateStudent.getName());
             preStt.setString(2, updateStudent.getEmail());
-            preStt.setString(3, updateStudent.getClassName());
-            preStt.setString(4, updateStudent.getRollNumber());
-            preStt.setInt(5, updateStudent.getStatus());
-            preStt.setInt(6, updateStudent.getId());
+            preStt.setString(3, updateStudent.getPhone());
+            preStt.setString(4, updateStudent.getClassName());
+            preStt.setString(5, updateStudent.getRollNumber());
+            preStt.setInt(6, updateStudent.getStatus());
+            preStt.setInt(7, updateStudent.getId());
 
             preStt.execute();
             System.out.println("-- Edit student success --");
